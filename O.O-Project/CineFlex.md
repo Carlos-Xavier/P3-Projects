@@ -87,14 +87,12 @@
   <dt> 1 - Coins: </dt>
   <dd>
     * Filmes: 
-      	<dd> a partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium. </dd>
-    * Lanches:
-	<dd>	
-	      - 8 coins: pipoca pequena.
-	      - 11 coins: pipoca grande.
-	      - 5 coins: refrigerante médio.
-	      - 8 coins: refrigerante grande.
-	</dd>
+      	1. a partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium.
+    * Lanches:	
+	1. 8 coins: pipoca pequena.
+	2. 11 coins: pipoca grande.
+	3. 5 refrigerante médio.
+	4. 8 coins: refrigerante grande.
     * Não é possível adquirir combos ou doces com coins.
   </dd>
   
