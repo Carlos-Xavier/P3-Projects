@@ -32,7 +32,7 @@
     Dependendo do dia da semana, o CineFlex automáticamente diminui ou aumenta o preço dos ingressos.
   </dd>
   
-  <dt> 6 - Salas:: </dt>
+  <dt> 6 - Salas: </dt>
   <dd> 
     O usuário pode escolher entre a sala normal e a sala premium, caso hajam salas disponíveis.
 	  O CineFlex possui 12 salas, das quais apenas 2 são premium.
@@ -86,14 +86,16 @@
 <dl>
   <dt> 1 - Coins: </dt>
   <dd>
-    + Filmes: 
-      - a partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium.
-    + Lanches:
-      - 8 coins: pipoca pequena.
-      - 11 coins: pipoca grande.
-      - 5 coins: refrigerante médio.
-      - 8 coins: refrigerante grande.
-    + Não é possível adquirir combos ou doces com coins.
+    * Filmes: 
+      	<dd> a partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium. </dd>
+    * Lanches:
+	<dd>	
+	      - 8 coins: pipoca pequena.
+	      - 11 coins: pipoca grande.
+	      - 5 coins: refrigerante médio.
+	      - 8 coins: refrigerante grande.
+	</dd>
+    * Não é possível adquirir combos ou doces com coins.
   </dd>
   
   <dt> 2 - Preços dos ingressos: </dt>
