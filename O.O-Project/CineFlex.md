@@ -24,7 +24,7 @@
   
   <dt> 4 - Checar horários: </dt>
   <dd> 
-    O usário deve poder verificar todos os horários dos filmes, de qualquer dia da semana.
+    O usuário deve poder verificar todos os horários dos filmes, de qualquer dia da semana.
   </dd>
   
   <dt> 5 - Preços: </dt>
