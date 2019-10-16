@@ -90,7 +90,7 @@
 	- A partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium. <br>
 	- 8 coins: pipoca pequena. <br>
 	- 11 coins: pipoca grande. <br>
-	- 5 refrigerante médio.    <br>
+	- 5 coins: refrigerante médio.    <br>
 	- 8 coins: refrigerante grande.
 	<h5> Não é possível adquirir combos ou doces com coins. </h5>
   </dd>
