@@ -83,9 +83,11 @@ public class Iface {
 
     static boolean check_user(String value, int i) {
         boolean bool = true;
-        for (int j = 0; profiles[j][i] != null; j++) {
-            if (profiles[j][i].intern() == value.intern()) {
-                bool = false;
+        for (int j = 0; j < 20; j++) {
+            if (profiles[j][i] != null) {
+                if (profiles[j][i].intern() == value.intern()) {
+                    bool = false;
+                }
             }
         }
         return bool;
@@ -93,9 +95,11 @@ public class Iface {
     
     static boolean check_user_guard(String value, int i) {
         boolean bool = true;
-        for (int j = 0; profiles_guard[j][i] != null; j++) {
-            if (profiles_guard[j][i].intern() == value.intern()) {
-                bool = false;
+        for (int j = 0; j < 20; j++) {
+            if (profiles_guard[j][i] != null) {
+                if (profiles_guard[j][i].intern() == value.intern()) {
+                    bool = false;
+                }
             }
         }
         return bool;
@@ -122,24 +126,23 @@ public class Iface {
         }
         return bool;
     }
-    
-    static void fill_notifications_d2(boolean[][] notification) {
-        for (int i = 0; i < 20; i++)
-            for (int j = 0; j < 20; j++)
-                notification[i][j] = false;
-    }
-    
-    static void fill_notifications_d3(boolean[][][] notification) {
-        for (int i = 0; i < 20; i++)
-            for (int j = 0; j < 20; j++)
-                for (int k = 0; k < 20; k++)
-                    notification[i][j][k] = false;
-    }
 
     static int getIndex(String index) {
         int i;
-        for (i = 0; profiles[i][0] != null; i++) {
-            if (profiles[i][0].intern() == index.intern()) break;
+        for (i = 0; i < 20; i++) {
+            if (profiles[i][0] != null) {
+                if (profiles[i][0].intern() == index.intern()) break;
+            }
+        }
+        return i;
+    }
+    
+    static int getIndexGuard(String index) {
+        int i;
+        for (i = 0; i < 20; i++) {
+            if (profiles_guard[i][0] != null) {
+                if (profiles_guard[i][0].intern() == index.intern()) break;
+            }
         }
         return i;
     }
@@ -238,6 +241,7 @@ public class Iface {
         
         if (!check_user(name, 0)) {
             int id = getIndex(name);
+            
             profiles[id][0] = profiles[id][1] = profiles[id][2] = null;
 
             for (int i = 0; i < 5; i++)
@@ -248,7 +252,7 @@ public class Iface {
             
             for (int i = 0; community[id][i][0] != null; i++)
                 community[id][i][0] = null;
-
+            
             System.out.println("Account successfully deleted!");
         }
         else {
@@ -263,11 +267,12 @@ public class Iface {
         name = value.next();
         
         if (!check_user_guard(name, 0)) {
-            int id = getIndex(name);
+            int id = getIndexGuard(name);
             
+            System.out.println(id);
             System.out.println("\nUsername: " + name);
-            System.out.println("Password: " + profiles_data_guard[id][0]);
-            System.out.println("Name: " + profiles_data_guard[id][1]);
+            System.out.println("Name: " + profiles_data_guard[id][0]);
+            System.out.println("Password: " + profiles_data_guard[id][1]);
             System.out.println("Age: " + profiles_data_guard[id][2]);
             System.out.println("City: " + profiles_data_guard[id][3]);
             System.out.println("Civil Status: " + profiles_data_guard[id][4]);
@@ -420,8 +425,10 @@ public class Iface {
                 
                 aux = input.next();
                 if (aux.intern() == "y" || aux.intern() == "Y") {
-                    friends_guard[id][i] = friends[id][i] = profiles[i][0];
-                    friends_guard[i][id] = friends[i][id] = profiles[id][0];
+                    friends[id][i] = profiles[i][0];
+                    friends_guard[id][i] = profiles[i][0];
+                    friends[i][id] = profiles[id][0];
+                    friends_guard[i][id] = profiles[id][0];
                     friend_notification[id][i] = false;
                 }
                 else if (aux.intern() == "n" || aux.intern() == "N");
@@ -538,7 +545,7 @@ public class Iface {
                 aux = input.next();
                 if (aux.intern() == "y" || aux.intern() == "Y") {
                     System.out.println(friend_message[id][i]);
-                    friend_notification[id][i] = false;
+                    message_notification[id][i] = false;
                 }
                 else if(aux.intern() == "n" || aux.intern() == "N");
                 
@@ -777,4 +784,3 @@ public class Iface {
         }
     }
 }
-
