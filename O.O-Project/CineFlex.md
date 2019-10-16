@@ -83,6 +83,7 @@
 
 ## Observações:
 
+1. 8 coins: pipoca pequena.
 <dl>
   <dt> 1 - Coins: </dt>
   <dd>
