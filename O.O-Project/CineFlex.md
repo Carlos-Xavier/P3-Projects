@@ -1,19 +1,19 @@
 # CineFlex
 
 <p>
-  O CineFlex é um sistema de cinema muito parecido com os que ja existem hoje em dia (Kinoplex, CineSystem, etc.).
-  Assim como eles, o CineFlex possuiu certas funcionalidades, tais como:
+  O CineFlex é um sistema de cinema muito parecido com os que já existem hoje em dia (Kinoplex, CineSystem, etc.).
+  Assim como eles, o CineFlex possui certas funcionalidades, tais como:
 </p>
 
 <dl>
   <dt> 1 - Cadastro no Sistema: </dt>
   <dd> 
-    Permita o usuário criar uma conta no CineFlex. Deve ser fornecido, login, senha, email e CPF.
+    Permite ao usuário criar uma conta no CineFlex. Deve ser fornecido, login, senha, email e CPF.
   </dd>
   
   <dt> 2 - Edição de Perfil: </dt>
   <dd> 
-    O usuário deve poder modificar qualquer atributo de seu perfil.
+    O usuário poderá modificar qualquer atributo de seu perfil.
   </dd>
   
   <dt> 3 - Compra de Ingresso: </dt>
@@ -35,13 +35,13 @@
   <dt> 6 - Salas: </dt>
   <dd> 
     O usuário pode escolher entre a sala normal e a sala premium, caso hajam salas disponíveis.
-	  O CineFlex possui 12 salas, das quais apenas 2 são premium.
+    O CineFlex possui 12 salas, das quais apenas 2 são premium.
     A sala premium possui um custo adicional de 9,99 reais.
   </dd>
   
   <dt> 7 - Assento: </dt>
   <dd> 
-    O usuário deve poder escolher qualquer assento disponível dentro da sala.
+    O usuário poderá escolher qualquer assento disponível dentro da sala.
   </dd>
   
   <dt> 8 - Descontos: </dt>
@@ -53,14 +53,14 @@
   <dd> 
     O usário terá as seguintes formas de pagamento: boleto, cartão de crédito e coins.
     O pagamento via boleto so poderá ser efetuado em filmes que serão exibidos após 24hrs da compra, para verificar o pagamento.
-    Caso, o pagamento não seja efetuado, o ingresso será cancelado.
+    Caso o pagamento não seja efetuado, o ingresso será cancelado.
   </dd>
   
   <dt> 10 - Coins: </dt>
   <dd> 
     Os coins são uma forma de estimular os usuários a assitirem mais vezes no CineFlex.
-	  Com os coins é possível comprar ingressos ou até alimentos.
-    Será entrege 1 coin por filme assistido.
+    Com os coins é possível comprar ingressos ou até alimentos.
+    Será entregue 1 coin por filme assistido.
   </dd>
   
   <dt> 11 - Alimentação: </dt>
@@ -76,7 +76,7 @@
   
   <dt> 13 - Popularidade: </dt>
   <dd> 
-    As salas de um determinado filme poderam aumentar ou diminuir de acordo com a quantidade de vezes que esse filme é assistido.
+    As salas de um determinado filme poderão aumentar ou diminuir de acordo com a quantidade de vezes que esse filme é assistido.
   </dd>
 </dl>
 
