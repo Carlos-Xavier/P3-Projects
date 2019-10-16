@@ -87,38 +87,35 @@
 <dl>
   <dt> 1 - Coins: </dt>
   <dd>
-    **Filmes:** <br>
-      	1. a partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium. <br>
-    **Lanches:** <br>	
-	1. 8 coins: pipoca pequena. <br>
-	2. 11 coins: pipoca grande. <br>
-	3. 5 refrigerante médio.    <br>
-	4. 8 coins: refrigerante grande. <br>
-    **Não é possível adquirir combos ou doces com coins.**
+	- A partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium. <br>
+	- 8 coins: pipoca pequena. <br>
+	- 11 coins: pipoca grande. <br>
+	- 5 refrigerante médio.    <br>
+	- 8 coins: refrigerante grande.
+	<h5> Não é possível adquirir combos ou doces com coins. </h5>
   </dd>
   
   <dt> 2 - Preços dos ingressos: </dt>
   <dd>
-    + Segunda: 7,00 reais (Todos).
-	  + Terça e quinta: 11,00 reais a meia e 22,00 reais a inteira.
-	  + Quarta: 9,00 reais a meia e 18,00 reais a inteira.
-	  + Sexta, sábado e domingo: 18,00 reais a meia e 36,00 reais a inteira.
+	  - Segunda: 7,00 reais (Todos). <br>
+	  - Terça e quinta: 11,00 reais a meia e 22,00 reais a inteira. <br>
+	  - Quarta: 9,00 reais a meia e 18,00 reais a inteira. <br>
+	  - Sexta, sábado e domingo: 18,00 reais a meia e 36,00 reais a inteira. <br>
   </dd>
   
   <dt> 3 - Alimentação: </dt>
   <dd>
-    + Pipoca média: 15,00 reais.
-	  + Pipoca grande: 22,00 reais.
-	  + Refrigerante médio: 10,00 reais.
-	  + Refrigerante grande: 14,00 reais.
-	  + Doces: 5 reais.
-	  + Combos:
-		  + Pipoca média e refrigerante médio: 22,00 reais.
-		  + Pipoca grande e refrigerente grande: 32,00 reais.
+	- Pipoca média: 15,00 reais. <br>
+	- Pipoca grande: 22,00 reais. <br>
+	- Refrigerante médio: 10,00 reais. <br>
+	- Refrigerante grande: 14,00 reais. <br>
+	- Doces: 5 reais.<br>
+	- Combo 1: Pipoca média e refrigerante médio: 22,00 reais. <br>
+	- Combo 2: Pipoca grande e refrigerente grande: 32,00 reais.
   </dd>
   
   <dt> 4 - Filmes em 3D: </dt>
   <dd>
-	  + Caso tenha mais de uma sala disponível para determinado filme que tenha a opção 3D, o usuário poderá escolher entre 2D ou 3D.
+	 - Caso tenha mais de uma sala disponível para determinado filme que tenha a opção 3D, o usuário poderá escolher entre 2D ou 3D.
   </dd>
 </dl>
