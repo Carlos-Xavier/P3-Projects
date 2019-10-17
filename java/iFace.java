@@ -48,9 +48,11 @@ public class Iface {
                     Login();
                     break;
                 case 3:
+                    clearScreen();
                     Delete_Account();
                     break;
                 case 4:
+                    clearScreen();
                     Recover_Data();
                     break;
                 case 5:
@@ -77,7 +79,7 @@ public class Iface {
         char esc = 27;
         String clear = esc + "[2J"; //codigo ansi para limpar a tela
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
             System.out.print(clear);
     }
 
@@ -207,18 +209,23 @@ public class Iface {
             int num = input.nextInt();
             switch(num) {
                 case 1:
+                    clearScreen();
                     Profile_Edit(name_aux);
                     break;
                 case 2:
+                    clearScreen();
                     Friends(name_aux);
                     break;
                 case 3:
+                    clearScreen();
                     Check_Message(name_aux);
                     break;
                 case 4:
+                    clearScreen();
                     Community_Edit(name_aux);
                     break;
                 case 5:
+                    clearScreen();
                     Notification(id);
                     break;
                 case 6:
@@ -229,7 +236,6 @@ public class Iface {
                     break;
             }
             if (pause) break;
-            clearScreen();
         }
     }
     
@@ -269,7 +275,6 @@ public class Iface {
         if (!check_user_guard(name, 0)) {
             int id = getIndexGuard(name);
             
-            System.out.println(id);
             System.out.println("\nUsername: " + name);
             System.out.println("Name: " + profiles_data_guard[id][0]);
             System.out.println("Password: " + profiles_data_guard[id][1]);
@@ -375,6 +380,7 @@ public class Iface {
                     Add_Friends(id);
                     break;
                 case 2:
+                    clearScreen();
                     List_Friends(id);
                     break;
                 case 3:
@@ -452,9 +458,11 @@ public class Iface {
             int num = input.nextInt();
             switch(num) {
                 case 1:
+                    clearScreen();
                     Friends_Messages(id);
                     break;
                 case 2:
+                    clearScreen();
                     Community_Message(id);
                     break;
                 case 3:
@@ -465,7 +473,6 @@ public class Iface {
                     break;
             }
             if (pause) break;
-            clearScreen();
         }
     }
     
@@ -569,9 +576,11 @@ public class Iface {
             int num = input.nextInt();
             switch(num) {
                 case 1:
+                    clearScreen();
                     Create_Community(id);
                     break;
                 case 2:
+                    clearScreen();
                     Your_Communities(id);
                     break;
                 case 3:
@@ -582,7 +591,6 @@ public class Iface {
                     break;
             }
             if (pause) break;
-            clearScreen();
         }
     }
     
@@ -595,14 +603,16 @@ public class Iface {
             System.out.print("Community Name: ");
             name = value.nextLine();
             
-            if (check_community(user)) break;
+            if (check_community(name)) break;
 
             System.out.println("Community already exists!");
         }
         community[id][i][0] = name;
         
         System.out.print("Enter a description for your community: ");
-        community[id][i][1] = value.nextLine();     
+        community[id][i][1] = value.nextLine();   
+        
+        System.out.print("Community " + community[id][i][0] + " created!");
     }
     
     static void Your_Communities(int id) {
@@ -641,12 +651,15 @@ public class Iface {
             int num = input.nextInt();
             switch(num) {
                 case 1:
+                    clearScreen();
                     Description(user_id, i);
                     break;
                 case 2:
+                    clearScreen();
                     Members(name, user_id, i);
                     break;
                 case 3:
+                    clearScreen();
                     Community_Notifications(user_id, i);
                     break;
                 case 4:
@@ -657,7 +670,6 @@ public class Iface {
                     break;
             }
             if (pause) break;
-            clearScreen();
         }
     }
     
@@ -681,9 +693,11 @@ public class Iface {
             int num = input.nextInt();
             switch(num) {
                 case 1:
+                    clearScreen();
                     Add_Members(id, i);
                     break;
                 case 2:
+                    clearScreen();
                     List_Members(id, i);
                     break;
                 case 3:
