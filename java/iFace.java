@@ -272,7 +272,7 @@ public class Iface {
         System.out.print("Enter the username you want to retrieve the data: ");
         name = value.next();
         
-        if (!check_user_guard(name, 0)) {
+        if (!check_user(name, 0)) {
             int id = getIndexGuard(name);
             
             System.out.println("\nUsername: " + name);
