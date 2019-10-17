@@ -233,7 +233,21 @@ public class Iface {
                     friends[i][id] = null;
                 }
             }
-  
+            
+            for (int i = 0; i < 20; i++) {
+                if (friend_message_guard[id][i] != null) {
+                    friend_message_guard[id][i] = null;
+                }    
+            }
+            
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 20; j++) {
+                    if (community_friends[i][j][id] != null) {
+                        community_friends[i][j][id] = null;
+                    }
+                }
+            }
+ 
             for (int i = 0; community[id][i][0] != null; i++)
                 community[id][i][0] = null;
             
