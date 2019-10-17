@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Iface {
     static String user, name, password, aux;
-    static String[][] profiles, profiles_data, friends, friend_message;
-    static String[][] profiles_guard, profiles_data_guard, friends_guard, friend_message_guard;
+    static String[][] profiles, profiles_data, friends, friend_message, friend_message_guard;
     static String[][][] community, community_friends, community_message;
     static boolean[][] friend_notification, message_notification;
     static boolean[][][] community_notification_member, community_notification_message;
@@ -14,14 +13,11 @@ public class Iface {
 
     public static void main(String[] args) {
         profiles = new String[20][3];
-        profiles_guard = new String[20][3];
         community = new String[20][20][2];
         profiles_data = new String[20][6];
-        profiles_data_guard = new String[20][6];
-        friends_guard = new String[20][20];
-        friend_message_guard = new String[20][20];
         friends = new String[20][20];
         friend_message = new String[20][20];
+        friend_message_guard = new String[20][20];
         friend_notification = new boolean[20][20];
         message_notification = new boolean[20][20];
         community_notification_member = new boolean[20][20][20];
@@ -95,18 +91,6 @@ public class Iface {
         return bool;
     }
     
-    static boolean check_user_guard(String value, int i) {
-        boolean bool = true;
-        for (int j = 0; j < 20; j++) {
-            if (profiles_guard[j][i] != null) {
-                if (profiles_guard[j][i].intern() == value.intern()) {
-                    bool = false;
-                }
-            }
-        }
-        return bool;
-    }
-    
     static boolean check_community(String value) {
         boolean bool = true;
         for (int j = 0; j < 20; j++) {
@@ -138,16 +122,6 @@ public class Iface {
         }
         return i;
     }
-    
-    static int getIndexGuard(String index) {
-        int i;
-        for (i = 0; i < 20; i++) {
-            if (profiles_guard[i][0] != null) {
-                if (profiles_guard[i][0].intern() == index.intern()) break;
-            }
-        }
-        return i;
-    }
 
     static void Create_Accont() {
         int i;
@@ -169,9 +143,9 @@ public class Iface {
         System.out.print("Name: ");
         name = value.nextLine();
 
-        profiles_guard[i][0] = profiles[i][0] = user;
-        profiles_data_guard[i][1] = profiles_data[i][1] = profiles_guard[i][1] = profiles[i][1] = password;
-        profiles_data_guard[i][0] = profiles_data[i][0] = profiles_guard[i][2] = profiles[i][2] = name;
+        profiles[i][0] = user;
+        profiles_data[i][1] = profiles[i][1] = password;
+        profiles_data[i][0] = profiles[i][2] = name;
 
         System.out.println("\nWelcome " + user);
     }
@@ -253,9 +227,13 @@ public class Iface {
             for (int i = 0; i < 5; i++)
                 profiles_data[id][i] = null;
 
-            for (int i = 0; friends[id][i] != null; i++)
-                friends[id][i] = null;
-            
+            for (int i = 0; i < 20; i++) {
+                if (friends[id][i] != null) {
+                    friends[id][i] = null;
+                    friends[i][id] = null;
+                }
+            }
+  
             for (int i = 0; community[id][i][0] != null; i++)
                 community[id][i][0] = null;
             
@@ -273,20 +251,20 @@ public class Iface {
         name = value.next();
         
         if (!check_user(name, 0)) {
-            int id = getIndexGuard(name);
+            int id = getIndex(name);
             
             System.out.println("\nUsername: " + name);
-            System.out.println("Name: " + profiles_data_guard[id][0]);
-            System.out.println("Password: " + profiles_data_guard[id][1]);
-            System.out.println("Age: " + profiles_data_guard[id][2]);
-            System.out.println("City: " + profiles_data_guard[id][3]);
-            System.out.println("Civil Status: " + profiles_data_guard[id][4]);
-            System.out.println("Sex: " + profiles_data_guard[id][5]);
+            System.out.println("Name: " + profiles_data[id][0]);
+            System.out.println("Password: " + profiles_data[id][1]);
+            System.out.println("Age: " + profiles_data[id][2]);
+            System.out.println("City: " + profiles_data[id][3]);
+            System.out.println("Civil Status: " + profiles_data[id][4]);
+            System.out.println("Sex: " + profiles_data[id][5]);
 
             System.out.println("\nFriends: ");
             for (int i = 0; i < 20; i++)
-                if (friends_guard[id][i] != null)
-                    System.out.println(friends_guard[id][i]);
+                if (friends[id][i] != null)
+                    System.out.println(friends[id][i]);
             
             System.out.println("\nPosts: ");
             for (int i = 0; i < 20; i++)
@@ -321,37 +299,37 @@ public class Iface {
                     System.out.print("Name: ");
                     aux = value.next();
 
-                    profiles_guard[n][2] = profiles_data_guard[n][0] = profiles_data[n][0] = aux;
+                    profiles_data[n][0] = aux;
                     break;
                 case 2:
                     System.out.print("Password: ");
                     aux = value.next();
                     
-                    profiles_guard[n][1] = profiles[n][1] = profiles_data_guard[n][1] = profiles_data[n][1] = aux;
+                    profiles[n][1] = profiles_data[n][1] = aux;
                     break;
                 case 3:
                     System.out.print("Age: ");
                     aux = value.next();
                     
-                    profiles_data_guard[n][2] = profiles_data[n][2] = aux;
+                    profiles_data[n][2] = aux;
                     break;
                 case 4:
                     System.out.print("City: ");
                     aux = value.next();
                     
-                    profiles_data_guard[n][3] = profiles_data[n][3] = aux;
+                    profiles_data[n][3] = aux;
                     break;
                 case 5:
                     System.out.print("Civil Status: ");
                     aux = value.next();
                     
-                    profiles_data_guard[n][4] = profiles_data[n][4] = aux;
+                    profiles_data[n][4] = aux;
                     break;
                 case 6:
                     System.out.print("Sex: ");
                     aux = value.next();
                     
-                    profiles_data_guard[n][5] = profiles_data[n][5] = aux;
+                    profiles_data[n][5] = aux;
                     break;
                 case 7:
                     pause = true;
@@ -432,9 +410,7 @@ public class Iface {
                 aux = input.next();
                 if (aux.intern() == "y" || aux.intern() == "Y") {
                     friends[id][i] = profiles[i][0];
-                    friends_guard[id][i] = profiles[i][0];
                     friends[i][id] = profiles[id][0];
-                    friends_guard[i][id] = profiles[id][0];
                     friend_notification[id][i] = false;
                 }
                 else if (aux.intern() == "n" || aux.intern() == "N");
