@@ -286,7 +286,7 @@ public class Iface {
             System.out.println("\nFriends: ");
             for (int i = 0; i < 20; i++)
                 if (friends_guard[id][i] != null)
-                    System.out.println(i+1 + " - " + friends_guard[id][i]);
+                    System.out.println(friends_guard[id][i]);
             
             System.out.println("\nPosts: ");
             for (int i = 0; i < 20; i++)
@@ -793,6 +793,8 @@ public class Iface {
                     int k;
                     for (k = 0; friend_message_guard[id_user][k] != null; k++);
                     friend_message_guard[id_user][k] = aux;
+                    
+                    System.out.println("Message sent!");
                 }
             }
         }
