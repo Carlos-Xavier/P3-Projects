@@ -51,9 +51,7 @@
   
   <dt> 9 - Pagamentos: </dt>
   <dd> 
-    O usuário terá as seguintes formas de pagamento: boleto, cartão de crédito e coins.
-    O pagamento via boleto só poderá ser efetuado em filmes que serão exibidos após 24hrs da compra, para verificar o pagamento.
-    Caso o pagamento não seja efetuado, o ingresso será cancelado.
+    O usuário terá as seguintes formas de pagamento: cartão de crédito e coins.
   </dd>
   
   <dt> 10 - Coins: </dt>
