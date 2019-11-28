@@ -32,7 +32,7 @@ public class CineFlex {
     
     public static void login(int i, Perfil p[], Filmes filme) {
         System.out.print("Informe seu email: ");
-        String email = input.next();
+        String login = input.next();
         
         System.out.print("Informe sua senha: ");
         String password = input.next();
@@ -40,7 +40,7 @@ public class CineFlex {
         boolean flag = true;
         for (int j = 0; j < i; j++)
         {
-            if (p[j] != null && (email.equals(p[j].getEmail()) && password.equals(p[j].getPassword())))
+            if (p[j] != null && (login.equals(p[j].getLogin()) && password.equals(p[j].getPassword())))
             {
                 p[j].painel(filme, p[j].getType());
                 flag = false;

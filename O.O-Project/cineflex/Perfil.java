@@ -36,8 +36,8 @@ public final class Perfil extends Cadastro {
     }
 
     public void gerenciarPerfil() {
-        System.out.print(Mensagens.gerenciar(this.getLogin(), this.getAge(), this.getGender(), 
-                this.getCity(), this.getEmail(), this.getCPF(), this.getPassword()));
+        System.out.print(Mensagens.gerenciar(this.getNome(), this.getAge(), this.getGender(), 
+                this.getCity(), this.getLogin(), this.getPassword()));
         
         String item = enter.next();
         switch(item.toLowerCase()) {

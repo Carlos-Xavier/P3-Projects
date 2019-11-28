@@ -23,14 +23,13 @@ public final class Mensagens {
         return mensagem;
     }
     
-    public static String gerenciar(String nome, int age, String gender, String city, String email, int CPF, String password) {
+    public static String gerenciar(String nome, int age, String gender, String city, String Login, String password) {
         mensagem = "=== Gerenciar pefil === \n"
                 + " Nome: " + nome + "\n"
                 + " Age: " + age + "\n"
                 + " Gender: " + gender + "\n"
                 + " City: " + city + "\n"
-                + " Email " + email + "\n"
-                + " CPF " + CPF + "\n"
+                + " Login " + Login + "\n"
                 + " Password " + password + "\n"
                 + " =====================  \n"
                 + " Qual campo deseja alterar? ";
@@ -99,9 +98,17 @@ public final class Mensagens {
             values[0] = input.nextInt();
             System.out.print("Número da fileira: ");
             values[1] = input.nextInt();
-        } while (!aux.getAssentos_2(values[0], values[1]));
+        } while (!aux.getAssentos_2(values[0], values[1]) && check(values[0]) && 
+                check(values[1]));
         
         return values;
+    }
+    
+    public static boolean check(int values) {
+        if (values > 4 || values < 0) 
+            return false;
+        else
+            return true;
     }
     
     public static String complete(Filme aux, Pessoa tipo, String horario) {
@@ -133,9 +140,5 @@ public final class Mensagens {
                 + "2 - Moedas ( R$ " + aux.getMoedas() + " ) \n"
                 + " ========================== ";
         return mensagem;
-    }
-
-    static boolean comidas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
