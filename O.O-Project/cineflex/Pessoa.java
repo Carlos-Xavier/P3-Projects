@@ -2,27 +2,38 @@ package cineflex;
 
 import java.util.Scanner;
 
-public abstract class Pessoa {
+public class Pessoa {
     Scanner input = new Scanner(System.in);
-    private float discount;
+    private float desconto;
+    private int moedas;
+    private float dinheiro;
 
     public Pessoa() {
-        System.out.print("Ocupação: ");
-        String type = input.next();
-        System.out.print("Ex: [ estudante, médico, aposentado, ... ]: ");
-        
-        if ("estudante".equals(type) || "aposentado".equals(type)) {
-            this.discount = 7.99f;
-        } else {
-            this.discount = 0f;
-        }
+        this.moedas = 0;
+        this.dinheiro = 50.0f;
     }
 
-    public float getDiscount() {
-        return discount;
+    public int getMoedas() {
+        return moedas;
     }
 
-    public void setDiscount(float discount) {
-        this.discount = discount;
+    public void setMoedas(int moedas) {
+        this.moedas = moedas;
+    }
+
+    public float getDinheiro() {
+        return dinheiro;
+    }
+
+    public void setDinheiro(float dinheiro) {
+        this.dinheiro = dinheiro;
+    }
+
+    public float getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(float desconto) {
+        this.desconto = desconto;
     }
 }

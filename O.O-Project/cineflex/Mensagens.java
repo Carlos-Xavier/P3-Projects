@@ -5,26 +5,26 @@ import java.util.Scanner;
 public final class Mensagens {
 
     static Scanner input = new Scanner(System.in);
-    public static String mensage;
+    public static String mensagem;
     
     public static String welcome() {
-        mensage = "### Bem vindo ao CineFlex ### \n"
+        mensagem = "### Bem vindo ao CineFlex ### \n"
                 + " 1 - Cadastrar \n"
                 + " 2 - Entrar \n"
                 + " 3 - Exit";
-        return mensage;
+        return mensagem;
     }
     
     public static String painel() {
-        mensage = "=== Painel Inicial === \n"
+        mensagem = "=== Painel Inicial === \n"
                 + " 1 - Gerenciar Perfil \n"
                 + " 2 - Filmes \n"
                 + " 3 - Exit";
-        return mensage;
+        return mensagem;
     }
     
     public static String gerenciar(String nome, int age, String gender, String city, String email, int CPF, String password) {
-        mensage = "=== Gerenciar pefil === \n"
+        mensagem = "=== Gerenciar pefil === \n"
                 + " Nome: " + nome + "\n"
                 + " Age: " + age + "\n"
                 + " Gender: " + gender + "\n"
@@ -34,19 +34,19 @@ public final class Mensagens {
                 + " Password " + password + "\n"
                 + " =====================  \n"
                 + " Qual campo deseja alterar? ";
-        return mensage;
+        return mensagem;
     }
     
     public static String filmes(String filme, int sala, String[] horario, int i) {
-        mensage = "============= " + i + " ============= \n"
+        mensagem = "============= " + i + " ============= \n"
                 + " Nome: " + filme + "   \n"
                 + " Sala: " + sala + "    \n"
                 + " Horário: " + horario[0] + " | " + horario[1] + "\n"
                 + ""; 
-        return mensage;
+        return mensagem;
     }
     
-    public static void assentos_1(Filme aux) {
+    public static int[] assentos_1(Filme aux) {
         char[] choices = {'A', 'B', 'C', 'D', 'E'};
         
         System.out.println("Escolha seu assento: ");
@@ -64,18 +64,18 @@ public final class Mensagens {
             System.out.print("  " + i);
         System.out.println();
         
-        System.out.print("Letra da fileira: ");
-        int i = input.nextInt();
-        System.out.print("Número da fileira: ");
-        int j = input.nextInt();
+        int[] values = new int[2]; 
+        do {
+            System.out.print("Letra da fileira: ");
+            values[0] = input.nextInt();
+            System.out.print("Número da fileira: ");
+            values[1] = input.nextInt();
+        } while (!aux.getAssentos_2(values[0], values[1]));
         
-        if (!aux.getAssentos_1(i, j))
-            aux.setAssentos_1(i, j, true);
-        else
-            System.out.println("Assento indisponível!");
+        return values;
     }
     
-    public static void assentos_2(Filme aux) {
+    public static int[] assentos_2(Filme aux) {
         char[] choices = {'A', 'B', 'C', 'D', 'E'};
         
         System.out.println("Escolha seu assento: ");
@@ -93,37 +93,46 @@ public final class Mensagens {
             System.out.print("  " + i);
         System.out.println();
         
-        System.out.print("Letra da fileira: ");
-        int i = input.nextInt();
-        System.out.print("Número da fileira: ");
-        int j = input.nextInt();
+        int[] values = new int[2]; 
+        do {
+            System.out.print("Letra da fileira: ");
+            values[0] = input.nextInt();
+            System.out.print("Número da fileira: ");
+            values[1] = input.nextInt();
+        } while (!aux.getAssentos_2(values[0], values[1]));
         
-        if (!aux.getAssentos_2(i, j))
-            aux.setAssentos_2(i, j, true);
-        else
-            System.out.println("Assento indisponível!");
+        return values;
     }
     
-    public static String complete(String nome, float price, String horario, float desconto) {
-        mensage = " =================== \n"
-                + " Filme: " + nome + "\n"
+    public static String complete(Filme aux, Pessoa tipo, String horario) {
+        mensagem = " =================== \n"
+                + " Filme: " + aux.getNome() + "\n"
                 + " Horário: " + horario + "\n"
-                + " Preço: " + price + "\n"
-                + " Desconto: " + desconto + "\n"
-                + " Total: " + (price - desconto) + "\n"
+                + " Preço: " + aux.getPrice() + "\n"
+                + " Desconto: " + tipo.getDesconto() + "\n"
+                + " Total: " + (aux.getPrice() - tipo.getDesconto()) + "\n"
+                + " Saldo atual: " + tipo.getDinheiro() + "\n"
                 + " =================== \n";
-        return mensage;
+        return mensagem;
     }
     
     public static String comidas(Comida c) {
-        mensage = " =================== \n"
+        mensagem = " =================== \n"
                 + "1 - Pipoca: R$ " + c.getPipoca() + "\n"
                 + "2 - Bebida: R$ " + c.getBebida() + "\n"
                 + "3 - Doce: R$ " + c.getDoce() + "\n"
                 + "x - Não comprar nada \n" 
                 + " =================== \n"
                 + " O que você deseja comprar ? ";        
-        return mensage;
+        return mensagem;
+    }
+    
+    public static String pagamentos(Filme aux) {
+        mensagem = " ### Formas de Pagamentos ### \n"
+                + "1 - Dinheiro ( R$ " + aux.getPrice() + " ) \n"
+                + "2 - Moedas ( R$ " + aux.getMoedas() + " ) \n"
+                + " ========================== ";
+        return mensagem;
     }
 
     static boolean comidas() {

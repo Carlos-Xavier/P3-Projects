@@ -42,7 +42,7 @@ public class CineFlex {
         {
             if (p[j] != null && (email.equals(p[j].getEmail()) && password.equals(p[j].getPassword())))
             {
-                p[j].painel(filme, p[j].getDiscount());
+                p[j].painel(filme, p[j].getType());
                 flag = false;
             }
         }

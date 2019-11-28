@@ -59,16 +59,16 @@ public final class Perfil extends Cadastro {
         }
     }
     
-    public void gerenciarFilmes(Filmes p, float price) {
+    public void gerenciarFilmes(Filmes p, Pessoa type) {
         for (int i = 0; i < 5; i++)
             p.exibirFilmes(i);
         
         System.out.println("Qual filme deseja assitir? ");
         int num = enter.nextInt();
-        p.comprarIngresso(num-1, price);
+        p.comprarIngresso(num-1, type);
     }
     
-    public void painel(Filmes p, float price) {
+    public void painel(Filmes p, Pessoa type) {
         System.out.print(Mensagens.painel());
         
         int num = enter.nextInt();
@@ -77,11 +77,11 @@ public final class Perfil extends Cadastro {
                 gerenciarPerfil();
                 break;
             case 2:
-                gerenciarFilmes(p, price);
+                gerenciarFilmes(p, type);
                 break;
             default:
                 return;
         }
-        painel(p, price);
+        painel(p, type);
     }
 }

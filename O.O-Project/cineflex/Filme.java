@@ -3,13 +3,22 @@ package cineflex;
 public class Filme {
     private String nome;
     private String[] horarios;
-    private int[] salas;
+    private int salas;
     private boolean assentos_1[][], assentos_2[][];
     private float price;
+    private int moedas;
     
     public Filme(boolean[][] assentos_1, boolean[][] assentos_2) {
         this.assentos_1 = assentos_1;
         this.assentos_2 = assentos_2;
+    }
+
+    public int getMoedas() {
+        return moedas;
+    }
+
+    public void setMoedas(int moedas) {
+        this.moedas = moedas;
     }
 
     public String getNome() {
@@ -36,11 +45,11 @@ public class Filme {
         this.horarios = horarios;
     }
 
-    public int[] getSalas() {
+    public int getSalas() {
         return salas;
     }
 
-    public void setSalas(int[] salas) {
+    public void setSalas(int salas) {
         this.salas = salas;
     }
     
