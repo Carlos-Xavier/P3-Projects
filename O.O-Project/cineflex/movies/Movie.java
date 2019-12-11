@@ -4,20 +4,30 @@ public class Movie {
     private String name;
     private String[] schedules;
     private int rooms;
-    private boolean seats_1[][], seats_2[][];
+    private boolean seats_1[][], seats_2[][], seats_3D[][];
     private float price;
-    private int coins;
-    
-    public Movie(boolean[][] seats_1, boolean[][] seats_2) {
+    private float coins;
+    private float price_3D;
+
+    public Movie(String name, String[] schedules, int rooms, boolean[][] seats_1, boolean[][] seats_2, boolean[][] seats_3D, float price, float coins) {
+        super();
+        
+        this.name = name;
+        this.schedules = schedules;
+        this.rooms = rooms;
         this.seats_1 = seats_1;
         this.seats_2 = seats_2;
+        this.seats_3D = seats_3D;
+        this.price = price;
+        this.coins = coins;
+        this.price_3D = 4.0f;
     }
 
-    public int getCoins() {
+    public float getCoins() {
         return coins;
     }
 
-    public void setCoins(int coins) {
+    public void setCoins(float coins) {
         this.coins = coins;
     }
 
@@ -67,5 +77,13 @@ public class Movie {
 
     public void setSeats_2(int i, int j, boolean seats) {
         this.seats_2[i][j] = seats;
+    }
+
+    public boolean getSeats_3D(int i, int j) {
+        return seats_3D[i][j];
+    }
+
+    public void setSeats_3D(int i, int j, boolean seats) {
+        this.seats_3D[i][j] = seats;
     }
 }

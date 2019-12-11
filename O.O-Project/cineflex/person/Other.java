@@ -4,8 +4,10 @@ import cineflex.person.Person;
 
 public class Other extends Person {
 
-    public Other() {
+    public Other(float price, String type) {
         super();
-        this.setDiscount(0f);
+        this.setType(type);
+        this.setDiscount(price); 
+        this.setDiscount_3D(4.0f);
     }
 }

@@ -5,21 +5,29 @@ import cineflex.manager.Messages;
 import cineflex.person.Person;
 import java.util.Scanner;
 
-public class Movies implements InterfaceFilme {
+public class Movies extends Movie implements InterfaceMovie {
     Scanner input = new Scanner(System.in);
     private Movie[] movie;
 
+    public Movies(Movie[] movie, String name, String[] schedules, int rooms, boolean[][] seats_1, boolean[][] seats_2, boolean[][] seats_3D, float price, float coins) {
+        super(name, schedules, rooms, seats_1, seats_2, seats_3D, price, coins);
+        this.movie = movie;
+    }
+
     public void showMovies(int i) {
-        String[] schedules = {this.movie[i].getSchedules(0), this.movie[i].getSchedules(1)};
+        String[] schedules = {this.movie[i].getSchedules(0), this.movie[i].getSchedules(1), this.movie[i].getSchedules(2)};
         System.out.print(Messages.movies(this.movie[i].getName(), this.movie[i].getRooms(), schedules, i+1));
     }
 
     @Override
-    public void chooseSeat(int i, String aux, int[] values) {
+    public int[] chooseSeat(int i, String aux, int[] values) {
         if (aux.equals(this.movie[i].getSchedules(0)))
             values = Messages.seats_1(this.movie[i]);
-        else
+        else if (aux.equals(this.movie[i].getSchedules(1)))
             values = Messages.seats_2(this.movie[i]);
+        else
+            values = Messages.seats3D(this.movie[i]);
+        return values;
     }
 
     @Override
@@ -49,32 +57,23 @@ public class Movies implements InterfaceFilme {
         String aux = movieTime(i);
         
         int[] values = new int[2];
-        this.chooseSeat(i, aux, values);
+        values = this.chooseSeat(i, aux, values);
 
-        payment(aux, values, type, i);
-        System.out.println(" O CineFlex agradece sua compra! ");
-    }
-
-    @Override
-    public void generateMovies() {
-        String[] names = {"Invocação do mal", "Coringa", "O Rei Leão", "Hellboy", "Vingadores: Ultimato"};
-        String[][] schedules = {{"8:15", "10:45"},
-                               {"9:15", "11:30",},
-                               {"10:40", "13:45"},
-                               {"13:20", "18:45"},
-                               {"19:15", "21:50"}};
-        int rooms[] = {1, 2, 3, 4, 5};
+        boolean flag = payment(aux, values, type, i);
+        float priceFood = foodCheck(type, i);
         
-        this.movie = new Movie[5];
-        for (int i = 0; i < 5; i++) {
-            this.movie[i] = new Movie(new boolean[5][5], new boolean[5][5]);
-            this.movie[i].setName(names[i]);
-            this.movie[i].setRooms(rooms[i]);
-            this.movie[i].setSchedules(schedules[i]);
-            this.movie[i].setPrice(25.99f);
-            this.movie[i].setCoins(5);
+        float value_3D = 0.0f;
+        if (this.movie[i].getSchedules(2).equals(aux)) {
+            value_3D = type.getDiscount_3D();
         }
-        System.out.println("ok");
+        
+        if (flag) {
+            System.out.print(Messages.completeMovie(this.movie[i], type, aux, priceFood, value_3D));
+        } else {
+            System.out.print(Messages.completeFood(type, priceFood, value_3D));
+        }
+       
+        System.out.println(" O CineFlex agradece sua compra! ");
     }
 
     @Override
@@ -82,8 +81,8 @@ public class Movies implements InterfaceFilme {
         System.out.println("Qual seção você quer assitir?");
         String value = input.next();
         
-        String[] horarios = {this.movie[i].getSchedules(0), this.movie[i].getSchedules(1)};
-        if (horarios[0].equals(value) || horarios[1].equals(value))
+        String[] schedules = {this.movie[i].getSchedules(0), this.movie[i].getSchedules(1), this.movie[i].getSchedules(2)};
+        if (schedules[0].equals(value) || schedules[1].equals(value) || schedules[2].equals(value))
             return value;
         else {
             System.out.println("Horário inválido");
@@ -92,55 +91,69 @@ public class Movies implements InterfaceFilme {
     }
 
     @Override
-    public void payment(String schedule, int[] values, Person type, int i) {
-        Messages.payment(this.movie[i]);
-        System.out.print(Messages.complete(this.movie[i], type, schedule));
+    public boolean payment(String schedule, int[] values, Person type, int i) {
+        System.out.print(Messages.payment(this.movie[i]));
         
         int n = input.nextInt();      
         switch (n) {
             case 1:
-                cashPayment(type, i, values);
-                break;
+                return cashPayment(type, schedule, i, values);
             case 2:
-                coinPayment(type, i, values);
-                break;
+                return coinPayment(type, schedule, i, values);
             default:
                 System.out.println("Opção inválida!");
-                payment(schedule, values, type, i);
+                return payment(schedule, values, type, i);
         }
-        
-        type.setCoins(type.getCoins() + 1);
+    }
+
+    @Override
+    public boolean cashPayment(Person type, String schedule, int i, int[] values) {
+        if (type.getMoney() < this.movie[i].getPrice() - type.getDiscount()) {
+            System.out.println("Você não possui dinheiro suficiente!");
+            return false;
+        } else {
+            if (this.movie[i].getSchedules(2).equals(schedule)) {
+                if (type.getMoney() < this.movie[i].getPrice() - type.getDiscount() - type.getDiscount_3D()) {
+                    System.out.println("Você não possui dinheiro suficiente!");
+                    return false;
+                } else {
+                    type.setMoney(type.getMoney() - type.getDiscount_3D());
+                }
+            }
+            confirm(values, i, schedule);
+                
+            float dif = (this.movie[i].getPrice() - type.getDiscount());
+            type.setMoney(type.getMoney() - dif);
+            type.setCoins(type.getCoins() + 1);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean coinPayment(Person type, String schedule, int i, int[] values) {
+        if (type.getCoins() < this.movie[i].getCoins()) {
+                System.out.println("Você não possui moedas suficientes!");
+                return false;
+        } else {
+            confirm(values, i, schedule);
+            
+            type.setCoins(type.getCoins() - this.movie[i].getCoins());
+            type.setCoins(type.getCoins() + 1);
+            return true;
+        }
+    }
+    
+    public float foodCheck(Person type, int i) {
+        float before = type.getMoney();
         
         System.out.println(" Deseja comprar algo para comer/beber (S/N)? ");
         String choice = input.next();
         if ("s".equals(choice.toLowerCase()) || "sim".equals(choice.toLowerCase())) {
             buyFood(type, i);
         }
-        System.out.println("Compra Finalizada com Sucesso!");
-    }
-
-    @Override
-    public void cashPayment(Person type, int i, int[] values) {
-        if (type.getMoney() < this.movie[i].getPrice() - type.getDiscount()) {
-                System.out.println("Você não possui dinheiro suficiente!");
-        } else {
-                confirm(values, i);
-                
-                float dif = this.movie[i].getPrice() - type.getDiscount();
-                type.setMoney(type.getMoney() - dif);
-        }
-    }
-
-    @Override
-    public void coinPayment(Person type, int i, int[] values) {
-        if (type.getCoins() < this.movie[i].getCoins()) {
-                System.out.println("Você não possui moedas suficientes!");
-        } else {
-            confirm(values, i);
-            
-            type.setCoins(type.getCoins() - this.movie[i].getCoins());
-        }
         
+        float after = type.getMoney();
+        return before - after;
     }
     
     public void item(Person type, float item_p) {
@@ -151,7 +164,13 @@ public class Movies implements InterfaceFilme {
         }
     }
     
-    public void confirm(int[] values, int i) {
-        this.movie[i].setSeats_2(values[0], values[1], true);
+    public void confirm(int[] values, int i, String aux) {
+        if (this.movie[i].getSchedules(0).equals(aux)) {
+            this.movie[i].setSeats_1(values[0], values[1], true);
+        } else if (this.movie[i].getSchedules(1).equals(aux)){
+            this.movie[i].setSeats_2(values[0], values[1], true);
+        } else {
+            this.movie[i].setSeats_3D(values[0], values[1], true);
+        }
     }
 }

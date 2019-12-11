@@ -6,27 +6,27 @@ import java.util.Scanner;
 public final class Start {
     static Scanner input = new Scanner(System.in);
     
-    public static void start(Movies movie, Profile p[], int i) {
+    public static void start(Movies[] movies, Profile p[], int i) {
         System.out.print(Messages.welcome());
         
         int num = input.nextInt();
         switch (num) {
             case 1:
-                p[i] = new Profile();
+                p[i] = new Profile(p);
                 ++i;
                 break;
             case 2:
-                login(i, p, movie);
+                login(i, p, movies);
                 break;
             case 3:
                 return;
         }
-        start(movie, p, i);
+        start(movies, p, i);
     }
     
-    public static void login(int i, Profile p[], Movies movie) {
+    public static void login(int i, Profile p[], Movies[] movies) {
         System.out.print("Informe seu email: ");
-        String login = input.next();
+        String email = input.next();
         
         System.out.print("Informe sua senha: ");
         String password = input.next();
@@ -34,12 +34,25 @@ public final class Start {
         boolean flag = true;
         for (int j = 0; j < i; j++)
         {
-            if (p[j] != null && (login.equals(p[j].getLogin()) && password.equals(p[j].getPassword())))
+            if (p[j] != null && (email.equals(p[j].getEmail()) && password.equals(p[j].getPassword())))
             {
-                p[j].panel(movie, p[j].getType());
+                p[j].panel(movies, p[j].getType());
                 flag = false;
             }
         }
         if (flag) System.out.println("Login ou Senha inválido!");
+    }
+    
+    public static boolean check(Profile p[], String email) {
+        boolean flag = true;
+        
+        for (int j = 0; j < 20; j++)
+        {
+            if (p[j] != null && email.equals(p[j].getEmail()) )
+            {
+                flag = false;
+            }
+        }
+        return flag;
     }
 }
