@@ -1,6 +1,9 @@
 package cineflex.movies;
 
+import cineflex.food.Beverage;
 import cineflex.food.Food;
+import cineflex.food.Popcorn;
+import cineflex.food.Sweet;
 import cineflex.manager.Messages;
 import cineflex.person.Person;
 import java.util.Scanner;
@@ -32,19 +35,21 @@ public class Movies extends Movie implements InterfaceMovie {
 
     @Override
     public void buyFood(Person type, int i) {
-        Food c = new Food();
-        System.out.print(Messages.food(c));
+        Popcorn p = new Popcorn();
+        Beverage b = new Beverage();
+        Sweet s = new Sweet();
+        System.out.print(Messages.food(p, b, s));
         
         int choice = input.nextInt();
         switch(choice) {
             case 1:
-                item(type, c.getPopcorn());
+                item(type, p.getPrice());
                 break;
             case 2:
-                item(type, c.getBeverage());
+                item(type, b.getPrice());
                 break;
             case 3:
-                item(type, c.getSweet());
+                item(type, s.getPrice());
                 break;
             default:
                 break;
@@ -172,5 +177,5 @@ public class Movies extends Movie implements InterfaceMovie {
         } else {
             this.movie[i].setSeats_3D(values[0], values[1], true);
         }
-    }
+    } 
 }

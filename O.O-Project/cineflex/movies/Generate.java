@@ -3,6 +3,7 @@ package cineflex.movies;
 import cineflex.days.Money;
 import cineflex.days.Coin;
 import cineflex.days.Days;
+import cineflex.manager.Messages;
 
 public final class Generate {
     private static Movies[] movie;
@@ -25,12 +26,13 @@ public final class Generate {
         Generate.movie = new Movies[5];
         
         int j = Days.random();
+        System.out.print(Messages.day(Days.getDay(j)));
         
         Money money = new Money();
-        Generate.money = money.getDay(j);
+        Generate.money = money.getDayPrice(j);
         
         Coin coin = new Coin();
-        Generate.coin = coin.getDay(j);
+        Generate.coin = coin.getDayPrice(j);
         
         for (int i = 0; i < 5; i++) {
             Generate.movie[i] = new Movies(Generate.movie, names[i], schedules[i], rooms[i], new boolean[5][5], new boolean[5][5], new boolean[5][5], Generate.money, Generate.coin);

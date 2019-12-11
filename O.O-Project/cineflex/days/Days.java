@@ -3,17 +3,18 @@ package cineflex.days;
 import java.util.Random;
 
 public class Days {
-    private final float[] days;
-
+    private final float[] daysPrice;
+    private static final String[] days = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"};
+    
     public Days(float mon, float tue, float wed, float thur, float fri, float sat, float sun) {
-        this.days = new float[7];
-        this.days[0] = mon;
-        this.days[1] = tue;
-        this.days[2] = wed;
-        this.days[3] = thur;
-        this.days[4] = fri;
-        this.days[5] = sat;
-        this.days[6] = sun;
+        this.daysPrice = new float[7];
+        this.daysPrice[0] = mon;
+        this.daysPrice[1] = tue;
+        this.daysPrice[2] = wed;
+        this.daysPrice[3] = thur;
+        this.daysPrice[4] = fri;
+        this.daysPrice[5] = sat;
+        this.daysPrice[6] = sun;
     }
     
     public static int random() {
@@ -22,7 +23,11 @@ public class Days {
         return gerador.nextInt(7);
     }
     
-    public float getDay(int i) {
-        return this.days[i];
+    public float getDayPrice(int i) {
+        return this.daysPrice[i];
+    }
+    
+    public static String getDay(int i) {
+        return Days.days[i];
     }
 }

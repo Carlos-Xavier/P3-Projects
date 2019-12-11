@@ -1,6 +1,8 @@
 package cineflex.manager;
 
-import cineflex.food.Food;
+import cineflex.food.Beverage;
+import cineflex.food.Popcorn;
+import cineflex.food.Sweet;
 import cineflex.person.Person;
 import cineflex.movies.Movie;
 import java.util.Scanner;
@@ -171,11 +173,11 @@ public final class Messages {
         return message;
     }
     
-    public static String food(Food c) {
+    public static String food(Popcorn p, Beverage b, Sweet s) {
         message = " =================== \n"
-                + "1 - Pipoca: R$ " + c.getPopcorn() + "\n"
-                + "2 - Bebida: R$ " + c.getBeverage() + "\n"
-                + "3 - Doce: R$ " + c.getSweet() + "\n"
+                + "1 - Pipoca: R$ " + p.getPrice() + "\n"
+                + "2 - Bebida: R$ " + b.getPrice() + "\n"
+                + "3 - Doce: R$ " + s.getPrice() + "\n"
                 + "x - Não comprar nada \n" 
                 + " =================== \n"
                 + " O que você deseja comprar ? ";        
@@ -187,6 +189,14 @@ public final class Messages {
                 + "1 - Dinheiro ( R$ " + aux.getPrice() + " ) \n"
                 + "2 - Moedas ( R$ " + aux.getCoins() + " ) \n"
                 + " ========================== \n";
+        return message;
+    }
+    
+    public static String day(String day) {
+        message = "================\n"
+                + " Dia: " + day + " \n"
+                + "================\n";
+        
         return message;
     }
 }
