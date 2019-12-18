@@ -15,6 +15,7 @@ public class Register {
     private String email;
     private String name;
     private Person type;
+    private String[][] historic;
 
     public Register(Profile[] p) {
         super();
@@ -31,6 +32,8 @@ public class Register {
         System.out.print("Ocupação: ");
         String aux_type = input.next();
         
+        this.historic = new String[10][6];
+        
         if ("estudante".equals(aux_type.toLowerCase())) {
             this.type = new Student(Generate.getPrice(), aux_type);
         } else if ("aposentado".equals(aux_type.toLowerCase())) {
@@ -40,6 +43,14 @@ public class Register {
         }
         
         System.out.println("\n === Cadastro efetuado! === \n");
+    }
+
+    public String getHistoric(int i, int j) {
+        return historic[i][j];
+    }
+
+    public void setHistoric(int i, int j, String historic) {
+        this.historic[i][j] = historic;
     }
 
     public Person getType() {

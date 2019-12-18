@@ -11,7 +11,7 @@ public class Person {
     private String type;
 
     public Person() {
-        this.coins = 0;
+        this.coins = 10f;
         this.money = 50.0f;
     }
 

@@ -15,7 +15,7 @@ public final class Generate {
     }
 
     public static Movies[] generateMovie() {
-        String[] names = {"Invocação do mal", "Coringa", "O Rei Leão", "Hellboy", "Vingadores: Ultimato"};
+        String[] names = {"Predador", "Coringa", "Vidro", "Hellboy", "Vingadores"};
         String[][] schedules = {{"8:15", "10:45", "14:15"},
                                {"9:15", "11:30", "22:30"},
                                {"10:40", "13:45", "16:30"},

@@ -36,7 +36,7 @@ public final class Start {
         {
             if (p[j] != null && (email.equals(p[j].getEmail()) && password.equals(p[j].getPassword())))
             {
-                p[j].panel(movies, p[j].getType());
+                p[j].panel(movies, p[j]);
                 flag = false;
             }
         }
