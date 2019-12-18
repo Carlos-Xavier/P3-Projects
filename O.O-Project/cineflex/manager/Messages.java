@@ -72,7 +72,20 @@ public final class Messages {
             System.out.print("  " + i);
         System.out.println();
         
-        return seat();
+        int[] values = new int[2]; 
+        do {
+            System.out.print("Número da linha da fileira: ");
+            values[0] = input.nextInt();
+            System.out.print("Número da coluna da fileira: ");
+            values[1] = input.nextInt();
+        } while (!(check(values[0]) && check(values[1])));
+        
+        if (!aux.getSeats_1(values[0], values[1])) {
+            return values;
+        } else {
+            System.out.print("Assento indisponível!");
+            return seats_1(aux);
+        }   
     }
     
     public static int[] seats_2(Movie aux) {
@@ -91,7 +104,20 @@ public final class Messages {
             System.out.print("  " + i);
         System.out.println();
         
-        return seat();
+        int[] values = new int[2]; 
+        do {
+            System.out.print("Número da linha da fileira: ");
+            values[0] = input.nextInt();
+            System.out.print("Número da coluna da fileira: ");
+            values[1] = input.nextInt();
+        } while (!(check(values[0]) && check(values[1])) && !aux.getSeats_2(values[0], values[1]));
+        
+        if (!aux.getSeats_2(values[0], values[1])) {
+            return values;
+        } else {
+            System.out.print("Assento indisponível!");
+            return seats_2(aux);
+        }   
     }
     
     public static int[] seats3D(Movie aux) {
@@ -110,24 +136,25 @@ public final class Messages {
             System.out.print("  " + i);
         System.out.println();
         
-        return seat();
-    }
-    
-    public static boolean check(int values) {
-        return !(values > 4 || values < 0);
-    }
-    
-    public static int[] seat() {
         int[] values = new int[2]; 
         do {
             System.out.print("Número da linha da fileira: ");
             values[0] = input.nextInt();
             System.out.print("Número da coluna da fileira: ");
             values[1] = input.nextInt();
-        } while (!(check(values[0]) && check(values[1])));
+        } while (!(check(values[0]) && check(values[1])) && !aux.getSeats_3D(values[0], values[1]));
         
-        return values;
+        if (!aux.getSeats_3D(values[0], values[1])) {
+            return values;
+        } else {
+            System.out.print("Assento indisponível!");
+            return seats3D(aux);
+        }   
     }
+    
+    public static boolean check(int values) {
+        return !(values > 4 || values < 0);
+    }  
     
     public static String completeMovieCoin(Movie aux, Person type, String schedule, float priceFood) {
         message = " =================== \n"
