@@ -16,61 +16,56 @@
     O usuário poderá modificar qualquer atributo editavél de seu perfil.
   </dd>
   
-  <dt> 3 - Compra de Ingresso: </dt>
-  <dd> 
-    O usuário pode comprar ingressos de qualquer filme no cinema, desde que ele esteja disponível.
-  </dd>
-  
-  <dt> 4 - Preços: </dt>
+  <dt> 3 - Preços: </dt>
   <dd> 
     Dependendo do dia da semana, o CineFlex automáticamente diminui ou aumenta o preço dos ingressos.
   </dd>
   
-  <dt> 5 - Salas: </dt>
+  <dt> 4 - Salas: </dt>
   <dd> 
     O usuário pode escolher entre a sala normal e a sala premium, caso hajam salas disponíveis.
     A sala premium possui um custo adicional de 9,99 reais.
   </dd>
   
-  <dt> 6 - Assento: </dt>
+  <dt> 5 - Assento: </dt>
   <dd> 
     O usuário poderá escolher qualquer assento disponível dentro da sala.
   </dd>
   
-  <dt> 7 - Descontos: </dt>
+  <dt> 6 - Descontos: </dt>
   <dd> 
     Estudantes, professores e decifientes pagam a metade do valor no ingresso.
   </dd>
   
-  <dt> 8 - Pagamentos: </dt>
+  <dt> 7 - Pagamentos: </dt>
   <dd> 
     O usuário terá as seguintes formas de pagamento: cartão de crédito e coins.
   </dd>
   
-  <dt> 9 - Coins: </dt>
+  <dt> 8 - Coins: </dt>
   <dd> 
     Os coins são uma forma de estimular os usuários a assitirem mais vezes no CineFlex.
     Com os coins é possível comprar ingressos ou até alimentos.
     Será entregue 1 coin por filme assistido.
   </dd>
   
-  <dt> 10 - Alimentação: </dt>
+  <dt> 9 - Alimentação: </dt>
   <dd> 
     Ao efetuar a compra de seu ingresso, o usuário poderá comprar seu lanche atravéz do próprio site.
   </dd>
   
-  <dt> 11 - 3D: </dt>
+  <dt> 10 - 3D: </dt>
   <dd> 
     Os filmes em 3D serão exibidos em salas específicas no cinema.
     Terão um adicional de 4,00 reais (inteira) ou 2,00 reais (meia).
   </dd>
   
-  <dt> 12 - Histórico: </dt>
+  <dt> 11 - Histórico: </dt>
   <dd> 
     O usuário poderá vizualizar todos os seus ingressos comprados.
   </dd>
   
-  <dt> 13 - Histórico: </dt>
+  <dt> 12 - Cancelar Compra: </dt>
   <dd> 
     O usuário poderá cancelar a compra de qualquer ingresso comprado. Tendo o reembolso somente do valor do ingresso.
   </dd>
