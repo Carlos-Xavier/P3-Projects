@@ -65,40 +65,37 @@
     Terão um adicional de 4,00 reais (inteira) ou 2,00 reais (meia).
   </dd>
   
+  <dt> 12 - Histórico: </dt>
+  <dd> 
+    O usuário poderá vizualizar todos os seus ingressos comprados.
+  </dd>
+  
+  <dt> 13 - Histórico: </dt>
+  <dd> 
+    O usuário poderá cancelar a compra de qualquer ingresso comprado. Tendo o reembolso somente do valor do ingresso.
+  </dd>
+  
 </dl>
 
 
 ## Observações:
 
-
 <dl>
-  <dt> 1 - Coins: </dt>
-  <dd>
-	- A partir de 10 coins um usuário poderá adquirir um ingresso em uma sala normal, e com 15 em uma sala premium. <br>
-	- 8 coins: pipoca pequena. <br>
-	- 11 coins: pipoca grande. <br>
-	- 5 coins: refrigerante médio.    <br>
-	- 8 coins: refrigerante grande.
-	<h5> Não é possível adquirir combos ou doces com coins. </h5>
-  </dd>
   
-  <dt> 2 - Preços dos ingressos: </dt>
+  <dt> 1 - Preços dos ingressos: </dt>
   <dd>
+	<b>- Reais:</b> <br>
 	  - Segunda: 7,00 reais (Todos). <br>
 	  - Terça e quinta: 11,00 reais a meia e 22,00 reais a inteira. <br>
 	  - Quarta: 9,00 reais a meia e 18,00 reais a inteira. <br>
 	  - Sexta, sábado e domingo: 18,00 reais a meia e 36,00 reais a inteira. <br>
   </dd>
-  
-  <dt> 3 - Alimentação: </dt>
   <dd>
-	- Pipoca média: 15,00 reais. <br>
-	- Pipoca grande: 22,00 reais. <br>
-	- Refrigerante médio: 10,00 reais. <br>
-	- Refrigerante grande: 14,00 reais. <br>
-	- Doces: 5 reais.<br>
-	- Combo 1: Pipoca média e refrigerante médio: 22,00 reais. <br>
-	- Combo 2: Pipoca grande e refrigerente grande: 32,00 reais.
+	<b>- Coins:</b> <br>
+	  - Segunda: 6 coins (Todos). <br>
+	  - Terça e quinta: 8 coins. <br>
+	  - Quarta: 7 coins. <br>
+	  - Sexta, sábado e domingo: 10 coins. <br>
   </dd>
  
 </dl>
