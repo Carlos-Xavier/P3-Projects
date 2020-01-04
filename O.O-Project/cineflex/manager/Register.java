@@ -24,13 +24,13 @@ public class Register {
         this.email = Email.email(p);
  
         System.out.print("Senha: ");
-        this.password = input.next();
+        this.password = input.nextLine();
         
         System.out.print("Nome: ");
-        this.name = input.next();
+        this.name = input.nextLine();
         
         System.out.print("Ocupação: ");
-        String aux_type = input.next();
+        String aux_type = input.nextLine();
         
         this.historic = new String[10][6];
         

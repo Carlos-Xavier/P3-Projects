@@ -1,5 +1,6 @@
 package cineflex.manager;
 
+import cineflex.exceptions.Exceptions;
 import cineflex.food.Beverage;
 import cineflex.food.Popcorn;
 import cineflex.food.Sweet;
@@ -75,9 +76,9 @@ public final class Messages {
         int[] values = new int[2]; 
         do {
             System.out.print("Número da linha da fileira: ");
-            values[0] = input.nextInt();
+            values[0] = Exceptions.intNum();
             System.out.print("Número da coluna da fileira: ");
-            values[1] = input.nextInt();
+            values[1] = Exceptions.intNum();
         } while (!(check(values[0]) && check(values[1])));
         
         if (!aux.getSeats_1(values[0], values[1])) {
@@ -107,9 +108,9 @@ public final class Messages {
         int[] values = new int[2]; 
         do {
             System.out.print("Número da linha da fileira: ");
-            values[0] = input.nextInt();
+            values[0] = Exceptions.intNum();
             System.out.print("Número da coluna da fileira: ");
-            values[1] = input.nextInt();
+            values[1] = Exceptions.intNum();
         } while (!(check(values[0]) && check(values[1])) && !aux.getSeats_2(values[0], values[1]));
         
         if (!aux.getSeats_2(values[0], values[1])) {
@@ -139,9 +140,9 @@ public final class Messages {
         int[] values = new int[2]; 
         do {
             System.out.print("Número da linha da fileira: ");
-            values[0] = input.nextInt();
+            values[0] = Exceptions.intNum();
             System.out.print("Número da coluna da fileira: ");
-            values[1] = input.nextInt();
+            values[1] = Exceptions.intNum();
         } while (!(check(values[0]) && check(values[1])) && !aux.getSeats_3D(values[0], values[1]));
         
         if (!aux.getSeats_3D(values[0], values[1])) {

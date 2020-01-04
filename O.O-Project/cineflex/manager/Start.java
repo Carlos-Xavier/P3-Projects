@@ -1,6 +1,7 @@
 package cineflex.manager;
 
 import cineflex.movies.Movies;
+import cineflex.exceptions.Exceptions;
 import java.util.Scanner;
 
 public final class Start {
@@ -9,7 +10,7 @@ public final class Start {
     public static void start(Movies[] movies, Profile p[], int i) {
         System.out.print(Messages.welcome());
         
-        int num = input.nextInt();
+        int num = Exceptions.intNum();
         switch (num) {
             case 1:
                 p[i] = new Profile(p);

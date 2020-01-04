@@ -1,5 +1,6 @@
 package cineflex.movies;
 
+import cineflex.exceptions.Exceptions;
 import cineflex.food.Beverage;
 import cineflex.food.Food;
 import cineflex.food.Popcorn;
@@ -42,7 +43,7 @@ public class Movies extends Movie implements InterfaceMovie {
         Sweet s = new Sweet();
         System.out.print(Messages.food(p, b, s));
         
-        int choice = input.nextInt();
+        int choice = Exceptions.intNum();
         switch(choice) {
             case 1:
                 item(type, p.getPrice());
@@ -94,7 +95,7 @@ public class Movies extends Movie implements InterfaceMovie {
     @Override
     public String movieTime(int i) {
         System.out.println("Qual seção você quer assitir?");
-        String value = input.next();
+        String value = input.nextLine();
         
         String[] schedules = {this.movie[i].getSchedules(0), this.movie[i].getSchedules(1), this.movie[i].getSchedules(2)};
         if (schedules[0].equals(value) || schedules[1].equals(value) || schedules[2].equals(value))
@@ -109,7 +110,7 @@ public class Movies extends Movie implements InterfaceMovie {
     public String payment(String schedule, int[] chosenSeat, Profile user, int i, int[] priceChoice) {
         System.out.print(Messages.payment(this.movie[i]));
         
-        int n = input.nextInt();      
+       int n = Exceptions.intNum();      
         priceChoice[0] = n;
         switch (n) {
             case 1:
